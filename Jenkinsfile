@@ -16,10 +16,10 @@ pipeline {
 		        label 'slave'
 		    }
 		    steps {
-			    git ''
+			    git 'https://github.com/kartheek143/Maven-Java-Project.git'
 			    stash 'Source'
 			    script{
-			        mvnHome = tool 'Maven3.6'
+			        mvnHome = tool 'maven3.6'
 			    }
 		    }
 		}
@@ -59,7 +59,8 @@ pipeline {
 		    //SCP-Publisher Plugin (Optional)
 		    steps {
 		        //sshScript remote: remote, script: "abc.sh"  	
-			sshPut remote: remote, from: 'target/java-maven-1.0.war', into: '/root/workspace/appServer/webapps'		        
+			sshPut remote: remote, from: 'target/java-maven-1.0.war', into: '/home/vagrant/karthik/tomcat8/webapps'
+'		        
 		    }
     	}
     	stage ('Integration-Test') {
