@@ -59,7 +59,7 @@ pipeline {
 		    //SCP-Publisher Plugin (Optional)
 		    steps {
 		        //sshScript remote: remote, script: "abc.sh"  	
-			sshPut remote: remote, from: 'target/java-maven-1.0.war', into: '/home/vagrant/karthik/tomcat8/webapps'		        
+			sshPut remote: remote, from: '/home/vagrant/workspace1/workspace/pipeline/target/java-maven-1.0.war', into: '/home/vagrant/karthik/tomcat8/webapps'		        
 		    }
     	}
     	stage ('Integration-Test') {
